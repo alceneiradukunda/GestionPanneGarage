@@ -1,4 +1,5 @@
-﻿/*!
+﻿
+/*!
    Copyright 2008-2020 SpryMedia Ltd.
 
  This source file is free software, available under the following license:
