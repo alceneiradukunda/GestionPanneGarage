@@ -12,8 +12,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
     public class ProfilesController : Controller
     {
         private GestionPanneGarageEntities db = new GestionPanneGarageEntities();
-
-
         //
         // GET: /Profiles/
 
