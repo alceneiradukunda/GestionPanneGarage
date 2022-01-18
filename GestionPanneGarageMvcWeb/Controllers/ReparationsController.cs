@@ -16,12 +16,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
  
 
 
-
-
-
-
-
-
        //
         // GET: /Reparations/
         //MECANICIEN
