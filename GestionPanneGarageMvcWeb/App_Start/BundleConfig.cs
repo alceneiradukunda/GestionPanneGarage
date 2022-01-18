@@ -1,8 +1,5 @@
 ﻿using System.Web;
 using System.Web.Optimization;
-
-
-
 namespace GestionPanneGarageMvcWeb
 {
     public class BundleConfig
