@@ -13,6 +13,13 @@ namespace GestionPanneGarageMvcWeb.Controllers
     {
         private GestionPanneGarageEntities db = new GestionPanneGarageEntities();
 
+
+
+
+
+
+
+
         //
         // GET: /Clients/
 
