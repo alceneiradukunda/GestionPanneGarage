@@ -18,8 +18,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
 
 
 
-
-
         //
         // GET: /Clients/
 
