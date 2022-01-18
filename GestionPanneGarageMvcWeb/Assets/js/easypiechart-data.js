@@ -1,4 +1,5 @@
-$(function() {
+
+$(function () {
     $('#easypiechart-teal').easyPieChart({
         scaleColor: false,
         barColor: '#1ebfae'
