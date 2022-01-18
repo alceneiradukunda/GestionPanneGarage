@@ -1,0 +1,55 @@
+﻿@model GestionPanneGarageMvcWeb.Models.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+@Html.Raw(TempData["msg"])
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+ <h3 style="background-color: yellow; text-align: center;resize:horizontal;"><i><b><u>Nouveau Utilisateur</u></b></i></h3>
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Profile:</i></b></label>
+                @Html.DropDownList("ProfileId", null, "Select a Profile", htmlAttributes: new { @class = "form-control" })
+        </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Username:</i></b></label>
+            <input type="text" name="Username" placeholder="Entrer Username :" autocomplete="off" required="required" value="" size="50" class="form-control">
+
+            <label></label>
+      </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Password:</i></b></label>
+            <input type="text" name="Password" placeholder="Entrer Password :" autocomplete="off" required="required" value="" size="50" class="form-control">
+
+            <label></label>
+      </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Telephone:</i></b></label>
+            <input type="text" name="Telephone" placeholder="Entrer Telephone :" autocomplete="off" required="required" value="" size="50" class="form-control">
+
+            <label></label>
+      </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Email:</i></b></label>
+            <input type="text" name="Email" placeholder="Entrer Email :" autocomplete="off" required="required" value="" size="50" class="form-control">
+      </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Adresse:</i></b></label>
+            <input type="text" name="Adresse" placeholder="Entrer Adresse :" autocomplete="off" required="required" value="" size="50" class="form-control">
+      </div>   
+   <br/><br/><br/><br/><br/>
+        <div class="col-md-5" >
+            <label> </label>
+           <input type="submit" value="Save" class="form-control btn btn-primary">
+      </div>
+    </fieldset>
+}
+<div style="font-size:30px;">
+    @Html.ActionLink("Retour a la liste", "Index")
+</div>
+</div>

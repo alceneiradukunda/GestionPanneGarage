@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionGarageModelStoreContainer" CdmEntityContainer="GestionGarageEntities">
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="GestionGarageModel.Article">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoriesArticlesId" ColumnName="CategoriesArticlesId" />
+          <ScalarProperty Name="TypesVehiculesId" ColumnName="TypesVehiculesId" />
+          <ScalarProperty Name="NomArticle" ColumnName="NomArticle" />
+          <ScalarProperty Name="PrixUnitaire" ColumnName="PrixUnitaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriesArticles">
+      <EntityTypeMapping TypeName="GestionGarageModel.CategoriesArticle">
+        <MappingFragment StoreEntitySet="CategoriesArticles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomCategorieArticle" ColumnName="NomCategorieArticle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="GestionGarageModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomClient" ColumnName="NomClient" />
+          <ScalarProperty Name="Prenomclient" ColumnName="Prenomclient" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PanneVehicules">
+      <EntityTypeMapping TypeName="GestionGarageModel.PanneVehicule">
+        <MappingFragment StoreEntitySet="PanneVehicules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientsId" ColumnName="ClientsId" />
+          <ScalarProperty Name="Plaque" ColumnName="Plaque" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+          <ScalarProperty Name="Modele" ColumnName="Modele" />
+          <ScalarProperty Name="DateEnregistrement" ColumnName="DateEnregistrement" />
+          <ScalarProperty Name="EtatVehicule" ColumnName="EtatVehicule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="GestionGarageModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProfileName" ColumnName="ProfileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reparations">
+      <EntityTypeMapping TypeName="GestionGarageModel.Reparation">
+        <MappingFragment StoreEntitySet="Reparations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ArticlesId" ColumnName="ArticlesId" />
+          <ScalarProperty Name="PanneVehiculesId" ColumnName="PanneVehiculesId" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="DateReparation" ColumnName="DateReparation" />
+          <ScalarProperty Name="EtatReparation" ColumnName="EtatReparation" />
+          <ScalarProperty Name="MontantTotal" ColumnName="MontantTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesVehicules">
+      <EntityTypeMapping TypeName="GestionGarageModel.TypesVehicule">
+        <MappingFragment StoreEntitySet="TypesVehicules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DescriptionsVehicules" ColumnName="DescriptionsVehicules" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="GestionGarageModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

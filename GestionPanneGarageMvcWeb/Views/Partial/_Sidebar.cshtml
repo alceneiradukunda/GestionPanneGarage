@@ -1,0 +1,48 @@
+﻿<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" style="background-color:rgb(0, 0, 0)">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name" style="color:rgb(255, 255, 255)"> @Session["username"] </div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		@*<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>*@
+    @{
+        var pageName = ViewContext.RouteData.Values["controller"].ToString();
+    }
+		<ul class="nav menu" >
+		 <li class="nav-item  @(pageName == "Reparations" ? "active" : "")"><a href="@Url.Action("Listesdesclientsetleursvehicules","Reparations")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-dashboard">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Dashboard</b></i></a></li>
+          <li class="nav-item  @(pageName == "CategoriesArticles" ? "active" : "")"><a href="@Url.Action("Index1","CategoriesArticles")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-calendar">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>CategoriesArticles</b></i></a></li>
+          <li class="nav-item  @(pageName == "TypesVehicules" ? "active" : "")"><a href="@Url.Action("Index1","TypesVehicules")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fas fa-bus-alt">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>TypesVehicules</b></i></a></li>
+           <li class="nav-item  @(pageName == "Articles" ? "active" : "")"><a href="@Url.Action("Index1","Articles")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-toggle-off">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Articles</b></i></a></li>
+           <li class="nav-item  @(pageName == "Clients" ? "active" : "")"><a href="@Url.Action("Index1","Clients")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-user-o" aria-hidden="true">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Clients</b></i></a></li>
+            <li class="nav-item  @(pageName == "PanneVehicules" ? "active" : "")"><a href="@Url.Action("Index2","PanneVehicules")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-ambulance" aria-hidden="true">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>PanneVehicules</b></i></a></li>
+            <li class="nav-item  @(pageName == "Reparations" ? "active" : "")"><a href="@Url.Action("IndexReparation","Reparations")"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-clone">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Reparation</b></i></a></li>
+            @*<li class="nav-item  @(pageName == "Profiles" ? "active" : "")"><a href="@Url.Action("Index","Profiles")"><em class="fa fa-clone">&nbsp;</em><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Profiles</b></i></a></li>
+            <li class="nav-item  @(pageName == "Users" ? "active" : "")"><a href="@Url.Action("Index","Users")"><em class="fa fa-clone">&nbsp;</em><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Users</b></i></a></li>*@
+			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+					<i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-navicon">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;">Les Affichages</i>
+				</a>
+				<ul class="children collapse" id="sub-item-1">
+					<li><a class="" href="@Url.Action("ListesVehiculesEncours","PanneVehicules")">
+							<span class="fa fa-arrow-right">&nbsp;</span>encours 
+						</a></li>
+					<li><a class="" href="@Url.Action("ListesVehiculesTerminer","Reparations")">
+							<span class="fa fa-arrow-right">&nbsp;</span>Terminer
+						</a></li>
+                    <li><a class="" href="@Url.Action("Listespardates","Reparations")">
+							<span class="fa fa-arrow-right">&nbsp;</span>Somme Total Par date
+						</a></li>
+				</ul>
+			</li>
+			<li><a href="login.html"><i style="color:rgb(255, 255, 255);font-size:15px;"><em class="fa fa-power-off">&nbsp;</em></i><i style="color:rgb(255, 255, 255);font-size:15px;"><b>Logout</b></i></a></li>
+		</ul>
+	</div>

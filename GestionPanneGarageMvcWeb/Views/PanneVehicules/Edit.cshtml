@@ -1,0 +1,77 @@
+﻿@model GestionPanneGarageMvcWeb.Models.PanneVehicule
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div  style="text-align:center;">
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+<h3><i><b>Mis a jour sur PanneVehicule</b></i></h3>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+         <legend><u><i><b>Liste sur PanneVehicule</b></i></u></legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientsId, "Client")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClientsId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ClientsId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Plaque)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Plaque)
+            @Html.ValidationMessageFor(model => model.Plaque)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Marque)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Marque)
+            @Html.ValidationMessageFor(model => model.Marque)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Modele)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Modele)
+            @Html.ValidationMessageFor(model => model.Modele)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateEnregistrement)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateEnregistrement)
+            @Html.ValidationMessageFor(model => model.DateEnregistrement)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EtatVehicule)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EtatVehicule)
+            @Html.ValidationMessageFor(model => model.EtatVehicule)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</div>
+    </div>

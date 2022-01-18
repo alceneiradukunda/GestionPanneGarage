@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<GestionPanneGarageMvcWeb.Models.ReparationModel>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+
+<!DOCTYPE html>
+ 
+<html>
+<body>
+  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Reparations des Vecules reparer par Jointures</u></b></i></h3>
+ <table class ="table table-bordered">
+
+        <tr>
+            <th>NOM</th><th>Prenom</th><th>Telephone</th><th>Plaque</th><th>Marque</th> <th>Modele</th><th>Quantite</th><th>MontantTotal</th>
+            <th>DateReparation</th>
+            <th>EtatReparation</th>
+        </tr>
+        @foreach (GestionPanneGarageMvcWeb.Models.ReparationModel customer in Model)
+        {
+            <tr>
+                <td>@customer.Nom</td>
+                <td>@customer.Prenom</td>
+                <td>@customer.Telephone</td>
+                <td>@customer.Plaque</td>
+                <td>@customer.Marque</td>
+                <td>@customer.Modele</td>
+                <td>@customer.Quantite</td>
+                 <td>@customer.MontantTotal</td>
+                <td>@customer.DateReparation</td>
+                 <td>@customer.EtatReparation</td> 
+            </tr>
+        }
+    </table>
+      </div>
+</body>
+</html>

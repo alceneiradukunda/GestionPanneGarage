@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionGarageModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GestionGarageEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="GestionGarageModel.Article" />
+    <EntitySet Name="CategoriesArticles" EntityType="GestionGarageModel.CategoriesArticle" />
+    <EntitySet Name="Clients" EntityType="GestionGarageModel.Client" />
+    <EntitySet Name="PanneVehicules" EntityType="GestionGarageModel.PanneVehicule" />
+    <EntitySet Name="Profiles" EntityType="GestionGarageModel.Profile" />
+    <EntitySet Name="Reparations" EntityType="GestionGarageModel.Reparation" />
+    <EntitySet Name="TypesVehicules" EntityType="GestionGarageModel.TypesVehicule" />
+    <EntitySet Name="Users" EntityType="GestionGarageModel.User" />
+    <AssociationSet Name="FK__Articles__Catego__1B0907CE" Association="GestionGarageModel.FK__Articles__Catego__1B0907CE">
+      <End Role="CategoriesArticles" EntitySet="CategoriesArticles" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__TypesV__1BFD2C07" Association="GestionGarageModel.FK__Articles__TypesV__1BFD2C07">
+      <End Role="TypesVehicules" EntitySet="TypesVehicules" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reparatio__Artic__21B6055D" Association="GestionGarageModel.FK__Reparatio__Artic__21B6055D">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Reparations" EntitySet="Reparations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PanneVehi__Clien__1ED998B2" Association="GestionGarageModel.FK__PanneVehi__Clien__1ED998B2">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="PanneVehicules" EntitySet="PanneVehicules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reparatio__Panne__22AA2996" Association="GestionGarageModel.FK__Reparatio__Panne__22AA2996">
+      <End Role="PanneVehicules" EntitySet="PanneVehicules" />
+      <End Role="Reparations" EntitySet="Reparations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__ProfileId__145C0A3F" Association="GestionGarageModel.FK__Users__ProfileId__145C0A3F">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoriesArticlesId" Type="Int32" Nullable="false" />
+    <Property Name="TypesVehiculesId" Type="Int32" Nullable="false" />
+    <Property Name="NomArticle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PrixUnitaire" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CategoriesArticle" Relationship="GestionGarageModel.FK__Articles__Catego__1B0907CE" FromRole="Articles" ToRole="CategoriesArticles" />
+    <NavigationProperty Name="TypesVehicule" Relationship="GestionGarageModel.FK__Articles__TypesV__1BFD2C07" FromRole="Articles" ToRole="TypesVehicules" />
+    <NavigationProperty Name="Reparations" Relationship="GestionGarageModel.FK__Reparatio__Artic__21B6055D" FromRole="Articles" ToRole="Reparations" />
+  </EntityType>
+  <EntityType Name="CategoriesArticle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomCategorieArticle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionGarageModel.FK__Articles__Catego__1B0907CE" FromRole="CategoriesArticles" ToRole="Articles" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomClient" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Prenomclient" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PanneVehicules" Relationship="GestionGarageModel.FK__PanneVehi__Clien__1ED998B2" FromRole="Clients" ToRole="PanneVehicules" />
+  </EntityType>
+  <EntityType Name="PanneVehicule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientsId" Type="Int32" Nullable="false" />
+    <Property Name="Plaque" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Marque" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Modele" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateEnregistrement" Type="DateTime" Precision="3" />
+    <Property Name="EtatVehicule" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Client" Relationship="GestionGarageModel.FK__PanneVehi__Clien__1ED998B2" FromRole="PanneVehicules" ToRole="Clients" />
+    <NavigationProperty Name="Reparations" Relationship="GestionGarageModel.FK__Reparatio__Panne__22AA2996" FromRole="PanneVehicules" ToRole="Reparations" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Users" Relationship="GestionGarageModel.FK__Users__ProfileId__145C0A3F" FromRole="Profiles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Reparation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticlesId" Type="Int32" Nullable="false" />
+    <Property Name="PanneVehiculesId" Type="Int32" Nullable="false" />
+    <Property Name="Quantite" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateReparation" Type="DateTime" Precision="3" />
+    <Property Name="EtatReparation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MontantTotal" Type="Double" />
+    <NavigationProperty Name="Article" Relationship="GestionGarageModel.FK__Reparatio__Artic__21B6055D" FromRole="Reparations" ToRole="Articles" />
+    <NavigationProperty Name="PanneVehicule" Relationship="GestionGarageModel.FK__Reparatio__Panne__22AA2996" FromRole="Reparations" ToRole="PanneVehicules" />
+  </EntityType>
+  <EntityType Name="TypesVehicule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DescriptionsVehicules" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionGarageModel.FK__Articles__TypesV__1BFD2C07" FromRole="TypesVehicules" ToRole="Articles" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Adresse" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Profile" Relationship="GestionGarageModel.FK__Users__ProfileId__145C0A3F" FromRole="Users" ToRole="Profiles" />
+  </EntityType>
+  <Association Name="FK__Articles__Catego__1B0907CE">
+    <End Role="CategoriesArticles" Type="GestionGarageModel.CategoriesArticle" Multiplicity="1" />
+    <End Role="Articles" Type="GestionGarageModel.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriesArticles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="CategoriesArticlesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__TypesV__1BFD2C07">
+    <End Role="TypesVehicules" Type="GestionGarageModel.TypesVehicule" Multiplicity="1" />
+    <End Role="Articles" Type="GestionGarageModel.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesVehicules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="TypesVehiculesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reparatio__Artic__21B6055D">
+    <End Role="Articles" Type="GestionGarageModel.Article" Multiplicity="1" />
+    <End Role="Reparations" Type="GestionGarageModel.Reparation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparations">
+        <PropertyRef Name="ArticlesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PanneVehi__Clien__1ED998B2">
+    <End Role="Clients" Type="GestionGarageModel.Client" Multiplicity="1" />
+    <End Role="PanneVehicules" Type="GestionGarageModel.PanneVehicule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PanneVehicules">
+        <PropertyRef Name="ClientsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reparatio__Panne__22AA2996">
+    <End Role="PanneVehicules" Type="GestionGarageModel.PanneVehicule" Multiplicity="1" />
+    <End Role="Reparations" Type="GestionGarageModel.Reparation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PanneVehicules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparations">
+        <PropertyRef Name="PanneVehiculesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__ProfileId__145C0A3F">
+    <End Role="Profiles" Type="GestionGarageModel.Profile" Multiplicity="1" />
+    <End Role="Users" Type="GestionGarageModel.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

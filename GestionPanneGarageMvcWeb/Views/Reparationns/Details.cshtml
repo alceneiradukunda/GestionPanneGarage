@@ -1,0 +1,51 @@
+﻿@model GestionPanneGarageMvcWeb.Models.Reparation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Reparation</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Article.NomArticle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Article.NomArticle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PanneVehicule.DateEnregistrement)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PanneVehicule.DateEnregistrement)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Total)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Total)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateReparation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateReparation)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

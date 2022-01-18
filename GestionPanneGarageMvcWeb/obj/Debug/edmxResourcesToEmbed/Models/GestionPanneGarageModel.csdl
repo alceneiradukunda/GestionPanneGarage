@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GestionEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="GestionModel.Article" />
+    <EntitySet Name="CategoriesArticles" EntityType="GestionModel.CategoriesArticle" />
+    <EntitySet Name="Clients" EntityType="GestionModel.Client" />
+    <EntitySet Name="ModePaiements" EntityType="GestionModel.ModePaiement" />
+    <EntitySet Name="Paiements" EntityType="GestionModel.Paiement" />
+    <EntitySet Name="PanneVehicules" EntityType="GestionModel.PanneVehicule" />
+    <EntitySet Name="Profiles" EntityType="GestionModel.Profile" />
+    <EntitySet Name="Reparations" EntityType="GestionModel.Reparation" />
+    <EntitySet Name="TypesVehicules" EntityType="GestionModel.TypesVehicule" />
+    <EntitySet Name="Users" EntityType="GestionModel.User" />
+    <AssociationSet Name="FK__Articles__Catego__1FCDBCEB" Association="GestionModel.FK__Articles__Catego__1FCDBCEB">
+      <End Role="CategoriesArticles" EntitySet="CategoriesArticles" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__TypesV__20C1E124" Association="GestionModel.FK__Articles__TypesV__20C1E124">
+      <End Role="TypesVehicules" EntitySet="TypesVehicules" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reparatio__Artic__267ABA7A" Association="GestionModel.FK__Reparatio__Artic__267ABA7A">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Reparations" EntitySet="Reparations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PanneVehi__Clien__239E4DCF" Association="GestionModel.FK__PanneVehi__Clien__239E4DCF">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="PanneVehicules" EntitySet="PanneVehicules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Paiement__ModePa__2B3F6F97" Association="GestionModel.FK__Paiement__ModePa__2B3F6F97">
+      <End Role="ModePaiement" EntitySet="ModePaiements" />
+      <End Role="Paiement" EntitySet="Paiements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Paiement__DateRe__2A4B4B5E" Association="GestionModel.FK__Paiement__DateRe__2A4B4B5E">
+      <End Role="Reparations" EntitySet="Reparations" />
+      <End Role="Paiement" EntitySet="Paiements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reparatio__Panne__276EDEB3" Association="GestionModel.FK__Reparatio__Panne__276EDEB3">
+      <End Role="PanneVehicules" EntitySet="PanneVehicules" />
+      <End Role="Reparations" EntitySet="Reparations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__ProfileId__145C0A3F" Association="GestionModel.FK__Users__ProfileId__145C0A3F">
+      <End Role="Profiles" EntitySet="Profiles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoriesArticlesId" Type="Int32" Nullable="false" />
+    <Property Name="TypesVehiculesId" Type="Int32" Nullable="false" />
+    <Property Name="NomArticles" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PrixUnitaire" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CategoriesArticle" Relationship="GestionModel.FK__Articles__Catego__1FCDBCEB" FromRole="Articles" ToRole="CategoriesArticles" />
+    <NavigationProperty Name="TypesVehicule" Relationship="GestionModel.FK__Articles__TypesV__20C1E124" FromRole="Articles" ToRole="TypesVehicules" />
+    <NavigationProperty Name="Reparations" Relationship="GestionModel.FK__Reparatio__Artic__267ABA7A" FromRole="Articles" ToRole="Reparations" />
+  </EntityType>
+  <EntityType Name="CategoriesArticle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomCategories" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionModel.FK__Articles__Catego__1FCDBCEB" FromRole="CategoriesArticles" ToRole="Articles" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomClient" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Prenomclient" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PanneVehicules" Relationship="GestionModel.FK__PanneVehi__Clien__239E4DCF" FromRole="Clients" ToRole="PanneVehicules" />
+  </EntityType>
+  <EntityType Name="ModePaiement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DescriptionModePaiement" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Paiements" Relationship="GestionModel.FK__Paiement__ModePa__2B3F6F97" FromRole="ModePaiement" ToRole="Paiement" />
+  </EntityType>
+  <EntityType Name="Paiement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DateReparationId" Type="Int32" Nullable="false" />
+    <Property Name="ModePaiementId" Type="Int32" Nullable="false" />
+    <Property Name="MontantTotalAPaye" Type="Double" />
+    <Property Name="MontantTotalPaye" Type="Double" />
+    <Property Name="MontantRestant" Type="Double" />
+    <NavigationProperty Name="ModePaiement" Relationship="GestionModel.FK__Paiement__ModePa__2B3F6F97" FromRole="Paiement" ToRole="ModePaiement" />
+    <NavigationProperty Name="Reparation" Relationship="GestionModel.FK__Paiement__DateRe__2A4B4B5E" FromRole="Paiement" ToRole="Reparations" />
+  </EntityType>
+  <EntityType Name="PanneVehicule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientsId" Type="Int32" Nullable="false" />
+    <Property Name="Plaque" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Marque" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Modele" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateEnregistrement" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Client" Relationship="GestionModel.FK__PanneVehi__Clien__239E4DCF" FromRole="PanneVehicules" ToRole="Clients" />
+    <NavigationProperty Name="Reparations" Relationship="GestionModel.FK__Reparatio__Panne__276EDEB3" FromRole="PanneVehicules" ToRole="Reparations" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Users" Relationship="GestionModel.FK__Users__ProfileId__145C0A3F" FromRole="Profiles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Reparation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ArticlesId" Type="Int32" Nullable="false" />
+    <Property Name="PanneVehiculesId" Type="Int32" Nullable="false" />
+    <Property Name="Quantite" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Total" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateReparation" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Article" Relationship="GestionModel.FK__Reparatio__Artic__267ABA7A" FromRole="Reparations" ToRole="Articles" />
+    <NavigationProperty Name="Paiements" Relationship="GestionModel.FK__Paiement__DateRe__2A4B4B5E" FromRole="Reparations" ToRole="Paiement" />
+    <NavigationProperty Name="PanneVehicule" Relationship="GestionModel.FK__Reparatio__Panne__276EDEB3" FromRole="Reparations" ToRole="PanneVehicules" />
+  </EntityType>
+  <EntityType Name="TypesVehicule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="DescriptionsVehicules" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionModel.FK__Articles__TypesV__20C1E124" FromRole="TypesVehicules" ToRole="Articles" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Adresse" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Profile" Relationship="GestionModel.FK__Users__ProfileId__145C0A3F" FromRole="Users" ToRole="Profiles" />
+  </EntityType>
+  <Association Name="FK__Articles__Catego__1FCDBCEB">
+    <End Role="CategoriesArticles" Type="GestionModel.CategoriesArticle" Multiplicity="1" />
+    <End Role="Articles" Type="GestionModel.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriesArticles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="CategoriesArticlesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__TypesV__20C1E124">
+    <End Role="TypesVehicules" Type="GestionModel.TypesVehicule" Multiplicity="1" />
+    <End Role="Articles" Type="GestionModel.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesVehicules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="TypesVehiculesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reparatio__Artic__267ABA7A">
+    <End Role="Articles" Type="GestionModel.Article" Multiplicity="1" />
+    <End Role="Reparations" Type="GestionModel.Reparation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparations">
+        <PropertyRef Name="ArticlesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PanneVehi__Clien__239E4DCF">
+    <End Role="Clients" Type="GestionModel.Client" Multiplicity="1" />
+    <End Role="PanneVehicules" Type="GestionModel.PanneVehicule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PanneVehicules">
+        <PropertyRef Name="ClientsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Paiement__ModePa__2B3F6F97">
+    <End Role="ModePaiement" Type="GestionModel.ModePaiement" Multiplicity="1" />
+    <End Role="Paiement" Type="GestionModel.Paiement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModePaiement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paiement">
+        <PropertyRef Name="ModePaiementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Paiement__DateRe__2A4B4B5E">
+    <End Role="Reparations" Type="GestionModel.Reparation" Multiplicity="1" />
+    <End Role="Paiement" Type="GestionModel.Paiement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reparations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paiement">
+        <PropertyRef Name="DateReparationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reparatio__Panne__276EDEB3">
+    <End Role="PanneVehicules" Type="GestionModel.PanneVehicule" Multiplicity="1" />
+    <End Role="Reparations" Type="GestionModel.Reparation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PanneVehicules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reparations">
+        <PropertyRef Name="PanneVehiculesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__ProfileId__145C0A3F">
+    <End Role="Profiles" Type="GestionModel.Profile" Multiplicity="1" />
+    <End Role="Users" Type="GestionModel.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.Reparation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+ <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Reparations des Vehicules Terminer la reparations</u></b></i></h3>
+<p>
+   @using (Html.BeginForm("Index", "Reparations", FormMethod.Post))
+   {
+       <span id="startDate"><b>StartDate</b></span><input type="date" name="startDate" />
+       <span id="endDate"><b>EndDate</b></span><input type="date" name="endDate" />
+       <input type="submit" name="submit" value="search Data" />
+   }  
+</p>
+<table class="table table-bordered" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.NomClient)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.Prenomclient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Article.NomArticle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Plaque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReparation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatReparation)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </th>
+          <th>
+            @Html.DisplayNameFor(model => model.MontantTotal)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.EtatVehicule)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.NomClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.Prenomclient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Article.NomArticle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Plaque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReparation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EtatReparation)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MontantTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.EtatVehicule)
+        </td>
+    </tr>
+}
+
+</table>
+</div>

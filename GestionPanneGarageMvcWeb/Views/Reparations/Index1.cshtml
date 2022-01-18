@@ -1,0 +1,124 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.Reparation>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<!Doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Affichage  des Vehicules Repares</title>
+</head>
+<body>
+ <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+  <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Vehicules Reparees</u></b></i></h3>
+ <div class="table-responsive">
+<div class="container mt-15">
+  <div class="mt-3">
+      <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Vehicules Reparees</u></b></i></h3>
+      <a href="@Url.Action("Create","Reparations")" class=" btn btn-sm  btn-success"><i class="fa fa-plus mr-2"></i>Nouvelle Reparation</a>
+     <table class="table table-bordered" id="users-list">
+       <thead class="table-dark">
+          <tr>
+            <th>No</th>
+              <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.NomClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.Prenomclient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Client.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Article.NomArticle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanneVehicule.Plaque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReparation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatReparation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontantTotal)
+        </th>
+        <th>Action</th>
+        </tr>
+           </thead>
+         <tbody>
+             @{
+                 int no = 0;
+             }
+        @foreach (var item in Model)
+        {
+            no++;
+            <tr>
+                <td>@no</td>
+          <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.NomClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.Prenomclient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Client.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Article.NomArticle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanneVehicule.Plaque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReparation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EtatReparation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MontantTotal)
+        </td>
+         <td>
+           <div class="dropdown">
+               <span class="dropdown-toggle dropdown-bg btn btn-outline-primary" role="button" id="dropdownMenuButton5"
+                                      data-toggle="dropdown" aria-expanded="false">
+                                    Actions
+                 </span>
+                   <div class="dropdown-menu dropdown-menu-right shadow-none" aria-labelledby="dropdownMenuButton5">
+                       @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new {@class="btn btn-info fa fa-pencil"})
+                       @Html.ActionLink("Details", "Details", new { id=item.Id },new {@class="btn btn-success fa fa-check"}) 
+                       @*@Html.ActionLink("Delete", "Delete", new { id=item.Id },new {@class="btn btn-danger fa fa-trash"})*@
+                    </div>
+             </div>
+           </td>
+            </tr>
+        }
+       
+       </tbody>
+     </table>   
+      </div>
+  </div>
+</div>
+ </div>
+</body>
+</html>
+@section scripts
+{
+    <script src="~/Scripts/Datatables.js"></script>
+}

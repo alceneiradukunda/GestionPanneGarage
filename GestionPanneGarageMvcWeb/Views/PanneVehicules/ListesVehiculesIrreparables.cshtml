@@ -1,0 +1,58 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.PanneVehiculeModel>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<!Doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Affichage de la liste des patients Decrypte</title>
+</head>
+<body>
+ <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(182, 255, 0)">
+  <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Vehicules Vue qu'ont ne peut par les faire la reparation</u></b></i></h3>
+<div class="container mt-15">
+  <div class="mt-3">
+      <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Vehicules Vue qu'ont ne peut par les faire la reparation</u></b></i></h3>
+     <table class="table table-bordered" id="users-list">
+       <thead class="table-dark">
+          <tr>
+            <th>No</th><th>NOM</th><th>Prenom</th><th>Telephone</th><th>Email</th><th>Plaque</th><th>Marque</th> <th>Modele</th><th>DateEnregistrement</th>
+            <th>Status Client</th>
+        </tr>
+           </thead>
+         <tbody>
+             @{
+                 int no = 0;
+             }
+        @foreach (GestionPanneGarageMvcWeb.Models.PanneVehiculeModel Encours in Model)
+        {
+            no++;
+            <tr>
+                <td>@no</td>
+                <td>@Encours.Nom</td>
+                <td>@Encours.Prenom</td>
+                <td>@Encours.Telephone</td>
+                <td>@Encours.Email</td>
+                <td>@Encours.Plaque</td>
+                <td>@Encours.Marque</td>
+                <td>@Encours.Modele</td>
+                 <td>@Encours.DateEnregistrement</td>
+                <td>@Encours.StatusClient</td>
+                 
+            </tr>
+        }
+       
+       </tbody>
+     </table>
+  </div>
+</div>
+ </div>
+</body>
+</html>
+@section scripts
+{
+    <script src="~/Scripts/Datatables.js"></script>
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.Vehicule>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+   <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Utilisateurs</u></b></i></h3>
+
+<a href="@Url.Action("Create","Vehicules")" class=" btn btn-sm  btn-success"><i class="fa fa-plus mr-2"></i>Nouvelle Vehicule</a>
+ <table class ="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Plaque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modele)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plaque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modele)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+</div>

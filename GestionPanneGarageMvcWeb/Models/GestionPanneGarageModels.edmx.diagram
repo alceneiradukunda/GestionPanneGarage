@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29dc9f98354f40b7b1b9a89e0b2f3779" Name="Diagramme1">
+        <EntityTypeShape EntityType="GestionPanneGarageModel.Article" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.CategoriesArticle" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.Client" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.PanneVehicule" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.Profile" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.Reparation" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.TypesVehicule" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionPanneGarageModel.User" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="GestionPanneGarageModel.FK__Articles__Catego__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionPanneGarageModel.FK__Articles__TypesV__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionPanneGarageModel.FK__Reparatio__Artic__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionPanneGarageModel.FK__PanneVehi__Clien__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionPanneGarageModel.FK__Reparatio__Panne__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionPanneGarageModel.FK__Users__ProfileId__145C0A3F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

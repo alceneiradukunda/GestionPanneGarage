@@ -1,0 +1,44 @@
+﻿@model GestionPanneGarageMvcWeb.Models.Article
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+<h3 style="background-color: yellow; text-align: center;resize:horizontal;"><i><b><u>Nouvelle Article</u></b></i></h3>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+         <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Categorie Article:</i></b></label>
+                @Html.DropDownList("CategoriesArticlesId", null, "Select a Categorie Article", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Type Vehicule:</i></b></label>
+                @Html.DropDownList("TypesVehiculesId", null, "Select a Type Vehicule", htmlAttributes: new { @class = "form-control" })
+        </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i> Nom Article:</i></b></label>
+            <input type="text" name="NomArticle" placeholder="Entrer Nom Article:"  required="required" value="" size="50" class="form-control">
+            <label></label>
+        </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i> Prix Unitaire:</i></b></label>
+            <input type="number" name="PrixUnitaire"   required="required" class="form-control">
+
+            <label></label>
+      </div>
+        <br/><br/><br/><br/><br/>
+        <div class="col-md-3">
+            <label> </label>
+            <input type="submit" value="Save"  class="form-control btn btn-primary">
+      </div>
+    </fieldset>
+}
+<div style="font-size:30px;">
+    @Html.ActionLink("Retour à la liste", "Index")
+</div>
+</div>

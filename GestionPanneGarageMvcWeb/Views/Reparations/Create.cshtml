@@ -1,0 +1,85 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.ReparationModel>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+@{
+    var date = DateTime.Now;
+}
+@{
+   
+    IEnumerable<GestionPanneGarageMvcWeb.Models.Reparation> Reparations = ViewData["Reparation"] as IEnumerable<GestionPanneGarageMvcWeb.Models.Reparation>;
+ }
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+<h3 style="background-color: yellow; text-align: center;resize:horizontal;"><i><b><u>Nouvelle Reparation</u></b></i></h3>
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+       
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Reparation Client name:</i></b></label>
+            <select name="PanneVehiculesId" class="form-control client_id ">
+                <option>select client</option>
+               @foreach (GestionPanneGarageMvcWeb.Models.ReparationModel item in Model)
+                {
+                    <option value="@item.PannevehiculeId">@item.Nom &emsp; @item.Prenom &emsp; @item.Telephone &emsp; @item.Plaque </option>
+                }
+            </select>
+        </div>
+        @* <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Plaque  :</i></b></label>
+                @Html.DropDownList("PanneVehiculesId", new SelectList(new List<string>()), "Select a Type Vehicule ", htmlAttributes: new { @class = "form-control plaque_id" })
+        </div>*@
+       
+        <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Categorie Article name :</i></b></label>
+                @Html.DropDownList("CategoriesArticlesId", null, "Select a Categorie Article name ", htmlAttributes: new { @class = "form-control categorie_id" })
+        </div>
+        <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Article name:</i></b></label>
+                @Html.DropDownList("ArticlesId", new SelectList(new List<string>()), "Select a Categorie Article", htmlAttributes: new { @class = "form-control product_id" })
+        </div>
+        @*<div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Type Vehicule  :</i></b></label>
+                @Html.DropDownList("TypeVehiculesId", new SelectList(new List<string>()), "Select a Type Vehicule ", htmlAttributes: new { @class = "form-control typevehicule_id" })
+        </div>*@
+        <div class="col-md-5">
+         <label><b style="font-size:20px;"><i>Prix Unitaire:</i></b></label>
+            <input type="number" class="form-control" autocomplete="off" readonly="" id="unit_price" required="required" />
+         </div>
+        <div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Quantity:</i></b></label>
+                <input type="number" name="Quantite" autocomplete="off" class="form-control  "  id="qty"  required="required" />
+         </div>
+
+          <div  class="col-md-5">
+                 <label><b style="font-size:20px;"><i>Total:</i></b></label>
+                <input type="number" class="form-control" readonly="readonly" autocomplete="off" id="total" name="MontantTotal" required="required" />
+            </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Etat Reparation :</i></b></label>
+            <select name="EtatReparation" class="form-control">
+              <option>---select Etat reparation---</option>
+              <option value="Paye">Paye</option>
+              
+            </select>
+            <label></label>
+      </div>
+        <div  class="col-md-5">
+                 <label><b style="font-size:20px;"><i>Date Reparation :</i></b></label>
+                <h2><input   readonly="readonly" name="DateReparation" class="form-control " value="@date"/></h2>
+            </div>
+          <br/><br/><br/><br/><br/>
+        <div class="col-md-3">
+            <label> </label>
+            <input type="submit" value="Save"  class="form-control btn btn-primary">
+      </div>
+    </fieldset>
+}
+<div style="font-size:30px;">
+    @Html.ActionLink("Back to List", "Index1")
+</div>
+</div>

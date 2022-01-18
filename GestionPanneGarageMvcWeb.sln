@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionPanneGarageMvcWeb", "GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb.csproj", "{B9B99C7B-8F2B-4B3E-B355-06767CCE7E6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionPanneGarageMvcWeb.Tests", "GestionPanneGarageMvcWeb.Tests\GestionPanneGarageMvcWeb.Tests.csproj", "{FAFC465E-BBC4-4723-B4D6-AC426001AC88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9B99C7B-8F2B-4B3E-B355-06767CCE7E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9B99C7B-8F2B-4B3E-B355-06767CCE7E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9B99C7B-8F2B-4B3E-B355-06767CCE7E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9B99C7B-8F2B-4B3E-B355-06767CCE7E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFC465E-BBC4-4723-B4D6-AC426001AC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFC465E-BBC4-4723-B4D6-AC426001AC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFC465E-BBC4-4723-B4D6-AC426001AC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFC465E-BBC4-4723-B4D6-AC426001AC88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

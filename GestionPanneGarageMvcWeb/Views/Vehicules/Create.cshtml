@@ -1,0 +1,50 @@
+﻿@model GestionPanneGarageMvcWeb.Models.Vehicule
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<h3 style="background-color: yellow; text-align: center;resize:horizontal;"><i><b><u>Nouvelle Vehicule</u></b></i></h3>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Plaque)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Plaque)
+            @Html.ValidationMessageFor(model => model.Plaque)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Marque)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Marque)
+            @Html.ValidationMessageFor(model => model.Marque)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Modele)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Modele)
+            @Html.ValidationMessageFor(model => model.Modele)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</div>

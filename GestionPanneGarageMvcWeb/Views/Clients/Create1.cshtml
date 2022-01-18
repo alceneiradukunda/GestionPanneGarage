@@ -1,0 +1,90 @@
+﻿@model GestionPanneGarageMvcWeb.Models.Client
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layout/_Default1.cshtml";
+}
+@{
+    IEnumerable<GestionPanneGarageMvcWeb.Models.Client> Clients = ViewData["Client"] as IEnumerable<GestionPanneGarageMvcWeb.Models.Client>;
+ }
+@{
+    int nom = 0;
+    int b = 0;
+}
+@foreach (GestionPanneGarageMvcWeb.Models.Client item in Clients)
+{
+    nom = item.Id;
+}
+@{
+    b = nom+1;
+ }
+@{
+    var date = DateTime.Now;
+}
+@Html.Raw(TempData["msg"])
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+<h3 style="background-color: yellow; text-align: center;resize:horizontal;"><i><b><u>Nouvelle Client</u></b></i></h3>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+         <div class="col-md-5">
+         <label>Nom Client:</label>
+            <input type="text" class="form-control" autocomplete="off" name="NomClient" required="required" />
+         </div>
+         <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Prenom Client:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Prenomclient" required="required" />
+         </div>
+        <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Telephone Client:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Telephone" required="required" />
+         </div>
+         <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Email Client:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Email" required="required" />
+         </div>
+         <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Adresse Client:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Adresse" required="required" />
+         </div>
+       <input type="hidden" name="ClientsId" value="@b"/>
+        <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Plaque:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Plaque" required="required" />
+         </div>
+        <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Marque:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Marque" required="required" />
+         </div>
+        <div class="col-md-5">
+         <label><b style="font-size:20px;"><i> Modele:</i></b></label>
+            <input type="text" class="form-control" autocomplete="off" name="Modele" required="required" />
+         </div>
+          <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Etat Vehicule:</i></b></label>
+            <select name="EtatVehicule" class="form-control">
+              <option>---select Etat Vehicule---</option>
+              <option value="Encours">Encours</option>
+              <option value="Nonreparer">Nonreparer</option>
+            </select>
+            <label></label>
+      </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Date Enregistrement :</i></b></label>
+            <input type="text" name="DateEnregistrement" placeholder="Entrer Date Enregistrement:" readonly="readonly" required="required" value="@date" size="50" class="form-control">
+            <label></label>
+        </div>
+<br/><br/><br/><br/><br/>
+        <div class="col-md-3">
+            <label> </label>
+            <input type="submit" value="Save"  class="form-control btn btn-primary">
+      </div>
+    </fieldset>
+}
+<div style="font-size:30px;">
+    @Html.ActionLink("Back to List", "Index1")
+</div>
+</div>

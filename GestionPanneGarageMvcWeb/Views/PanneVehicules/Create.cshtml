@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.PanneVehiculeModel>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+@{
+    var date = DateTime.Now;
+}
+@{
+   
+    IEnumerable<GestionPanneGarageMvcWeb.Models.PanneVehicule> Reparations = ViewData["PanneVehicule"] as IEnumerable<GestionPanneGarageMvcWeb.Models.PanneVehicule>;
+ }
+@Html.Raw(TempData["msg"])
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+<h3 style="background-color: yellow; text-align: center;resize:horizontal;"><i><b><u>Nouvelle Vehicule en panne</u></b></i></h3>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        @*<div class="col-md-5">
+                <label><b style="font-size:20px;"><i>Client name :</i></b></label>
+                @Html.DropDownList("ClientsId", null, "Select a Client ", htmlAttributes: new { @class = "form-control " })
+        </div>*@
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Client name:</i></b></label>
+            <select name="ClientsId" class="form-control client_id ">
+                <option>select client</option>
+               @foreach (GestionPanneGarageMvcWeb.Models.PanneVehiculeModel item in Model)
+                {
+                    <option value="@item.CLIENTSID">@item.Nom &emsp; @item.Prenom &emsp; @item.Telephone &emsp; @item.Plaque </option>
+                }
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Plaque :</i></b></label>
+            <input type="text" name="Plaque" placeholder="Entrer Plaque:"  required="required" value="" size="50" class="form-control">
+            <label></label>
+        </div>
+         <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Marque :</i></b></label>
+            <input type="text" name="Marque" placeholder="Entrer Marque:"  required="required" value="" size="50" class="form-control">
+            <label></label>
+        </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Modele :</i></b></label>
+            <input type="text" name="Modele" placeholder="Entrer Modele:"  required="required" value="" size="50" class="form-control">
+            <label></label>
+        </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Date Enregistrement :</i></b></label>
+            <input type="text" name="DateEnregistrement" placeholder="Entrer Date Enregistrement:" readonly="readonly"  required="required" value="@date" size="50" class="form-control">
+            <label></label>
+        </div>
+        <div class="col-md-5">
+            <label><b style="font-size:20px;"><i>Etat Vehicule:</i></b></label>
+            <select name="EtatVehicule" class="form-control">
+              <option>---select Etat Vehicule---</option>
+              <option value="Encours">Encours</option>
+            </select>
+            <label></label>
+      </div>
+        <br/><br/><br/><br/><br/>
+        <div class="col-md-3">
+            <label></label>
+            <input type="submit" value="Save"  class="form-control btn btn-primary">
+      </div>
+    </fieldset>
+}
+<div style="font-size:30px;">
+    @Html.ActionLink("Retour à la liste", "Index")
+</div>
+</div>
