@@ -46,18 +46,10 @@ namespace GestionPanneGarageMvcWeb.Controllers
                                                PanneId = (C.Id),
                                                PannevehiculeId = P.Id,
                                            }).Distinct().ToList();
-
-
-            //var PanneVehicule = db.PanneVehicules;
-            //ViewData["PanneVehicule"] = PanneVehicule.ToList() ;
-            //var Client = db.Clients;
-            //ViewData["Client"] = Client.ToList();
             ViewBag.CategoriesArticlesId = new SelectList(db.CategoriesArticles, "Id", "NomCategorieArticle");
             //ViewBag.PanneVehiculesId = new SelectList(db.PanneVehicules, "Id", "Plaque");
             return View(model);
         }
-
-
         //
         // POST: /Reparations/Create
 
