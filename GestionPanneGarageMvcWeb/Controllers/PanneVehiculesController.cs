@@ -12,7 +12,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
     public class PanneVehiculesController : Controller
     {
         private GestionPanneGarageEntities db = new GestionPanneGarageEntities();
-        //
         // GET: /PanneVehicules/
 
         public ActionResult Index1()
@@ -21,7 +20,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
             var pannevehicules = db.PanneVehicules.Include(p => p.Client);
             return View(pannevehicules.ToList());
         }
-       
         //
         // GET: /PanneVehicules/Details/5
 
