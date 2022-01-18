@@ -12,7 +12,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
     public class CategoriesArticlesController : Controller
     {
         private GestionPanneGarageEntities db = new GestionPanneGarageEntities();
-        //
         // GET: /CategoriesArticles/
 
         public ActionResult Index()
