@@ -1,4 +1,5 @@
-var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
+
+var randomScalingFactor = function () { return Math.round(Math.random() * 1000) };
 	
 	var lineChartData = {
 		labels : ["January","February","March","April","May","June","July"],
