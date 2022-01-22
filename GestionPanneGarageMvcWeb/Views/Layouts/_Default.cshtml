@@ -18,7 +18,7 @@
 	            scaleFontColor: "#c5c7cc"
 	        });
 	    };
-	    var StrValue1 = "@((string)ViewBag.mssg)"
+	   @* var StrValue1 = "@((string)ViewBag.mssg)"
 	    if (StrValue1 !== null && StrValue1 !== '') {
 	        swal("Bon travail!", StrValue1, "success");
 	    }
@@ -27,7 +27,7 @@
 	    {
 	        swal("Bon travail!", StrValue, "success");
 	    }
-        
+        *@
 	</script>
 
 </body>
