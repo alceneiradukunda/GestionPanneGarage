@@ -21,14 +21,26 @@
 	            scaleFontColor: "#c5c7cc"
 	        });
 	    };
-	   @* var StrValue1 = "@((string)ViewBag.mssg)"
+	    var StrValue1 = "@((string)ViewBag.msg)"
 	    if (StrValue1 !== null && StrValue1 !== '') {
-	        swal("Bon travail!", StrValue1, "success");
+	        swal({
+	            title: "Bon Travail",
+	            text: StrValue,
+	            icon: "success",
+	            button: true,
+	            timer: 5000
+	        });
 	    }
-	    var StrValue = "@((string)ViewBag.msg)"
+	    var StrValue = "@((string)ViewBag.msSg)"
 	    if (StrValue !== null && StrValue !== '') {
-	        swal("Bon travail!", StrValue, "success");
-	    }*@
+	        swal({
+	            title: "Bienvenue!!!!!",
+	            text: StrValue,
+	            icon: "success",
+	            button: true,
+	            timer: 5000
+	        });
+	    }
 
 	</script>
 
