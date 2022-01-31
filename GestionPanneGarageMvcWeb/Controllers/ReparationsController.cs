@@ -191,7 +191,7 @@ namespace GestionPanneGarageMvcWeb.Controllers
         //Affichage des vehicules et des clients1
         public ActionResult Listes_Clients_leurs_Vehicules()
         {
-            ViewBag.msg = TempData["mssg"] as string;
+            ViewBag.msSg = TempData["mssg"] as string;
             var reparations = db.Reparations.Include(r => r.Article).Include(r => r.PanneVehicule);
             return View(reparations);
             
@@ -199,7 +199,7 @@ namespace GestionPanneGarageMvcWeb.Controllers
         [HttpPost]
         public ActionResult Listes_Clients_leurs_Vehicules(DateTime? startDate, DateTime? endDate)
         {
-            ViewBag.msg = TempData["mssg"] as string;
+            ViewBag.msSg = TempData["mssg"] as string;
             ViewBag.rapport = "Rapport Du" + startDate + "Au" + endDate;
             var reparations = db.Reparations.Where(x => x.DateReparation >= startDate && x.DateReparation <= endDate).ToList();
             return View(reparations);
