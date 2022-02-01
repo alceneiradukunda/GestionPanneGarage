@@ -207,7 +207,7 @@ namespace GestionPanneGarageMvcWeb.Controllers
         //Affichage des vehicules et des clients2
         public ActionResult Listesdesclientsetleursvehicules()
         {
-            ViewBag.msg = TempData["mssg"] as string;
+            ViewBag.msSg = TempData["mssg"] as string;
             var reparations = db.Reparations.Include(r => r.Article).Include(r => r.PanneVehicule);
             return View(reparations);
             
