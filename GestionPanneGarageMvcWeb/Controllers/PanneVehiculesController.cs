@@ -20,6 +20,12 @@ namespace GestionPanneGarageMvcWeb.Controllers
             var pannevehicules = db.PanneVehicules.Include(p => p.Client);
             return View(pannevehicules.ToList());
         }
+        public ActionResult Index4()
+        {
+            ViewBag.msg = TempData["msg"] as string;
+            var pannevehicules = db.PanneVehicules.Include(p => p.Client);
+            return View(pannevehicules.ToList());
+        }
         //
         // GET: /PanneVehicules/Details/5
 
