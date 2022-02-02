@@ -313,6 +313,7 @@ C:\Users\irada\Desktop\RapportDestage\GestionPanneGarageMvcWeb\GestionPanneGarag
 C:\Users\irada\Desktop\RapportDestage\GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb\bin\fr\WebMatrix.WebData.resources.dll
 C:\Users\irada\Desktop\RapportDestage\GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb\obj\Debug\GestionPanneGarageMvcWeb.pdb
 C:\Users\irada\Desktop\RapportDestage\GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb\obj\Debug\GestionPanneGarageMvcWeb.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\irada\Desktop\Projet Encours\GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb\bin\GestionPanneGarageMvcWeb.dll
 C:\Users\irada\Desktop\Projet Encours\GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb\bin\GestionPanneGarageMvcWeb.pdb
 C:\Users\irada\Desktop\Projet Encours\GestionPanneGarageMvcWeb\GestionPanneGarageMvcWeb\bin\Antlr3.Runtime.dll
@@ -439,6 +440,8 @@ C:\Users\irada\Desktop\wenga\GestionPanneGarage\GestionPanneGarageMvcWeb\bin\fr\
 C:\Users\irada\Desktop\wenga\GestionPanneGarage\GestionPanneGarageMvcWeb\obj\Debug\GestionPanneGarageMvcWeb.csprojResolveAssemblyReference.cache
 C:\Users\irada\Desktop\wenga\GestionPanneGarage\GestionPanneGarageMvcWeb\obj\Debug\GestionPanneGarageMvcWeb.dll
 C:\Users\irada\Desktop\wenga\GestionPanneGarage\GestionPanneGarageMvcWeb\obj\Debug\GestionPanneGarageMvcWeb.pdb
+=======
+>>>>>>> PannesVehicules
 C:\Users\irada\Desktop\GestionPanne\GestionPanneGarage\GestionPanneGarageMvcWeb\bin\GestionPanneGarageMvcWeb.dll
 C:\Users\irada\Desktop\GestionPanne\GestionPanneGarage\GestionPanneGarageMvcWeb\bin\GestionPanneGarageMvcWeb.pdb
 C:\Users\irada\Desktop\GestionPanne\GestionPanneGarage\GestionPanneGarageMvcWeb\bin\Antlr3.Runtime.dll

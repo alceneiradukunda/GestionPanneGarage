@@ -508,9 +508,13 @@
     <Content Include="Views\Reparations\Listesdesclientsetleursvehicules.cshtml" />
     <Content Include="Views\PanneVehicules\Index4.cshtml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <Content Include="Views\PanneVehicules\Index7.cshtml" />
 >>>>>>> Templates
+=======
+    <Content Include="Views\PanneVehicules\Index7.cshtml" />
+>>>>>>> PannesVehicules
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
