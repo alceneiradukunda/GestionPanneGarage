@@ -26,6 +26,13 @@ namespace GestionPanneGarageMvcWeb.Controllers
             var pannevehicules = db.PanneVehicules.Include(p => p.Client);
             return View(pannevehicules.ToList());
         }
+        [HttpPost]
+        public ActionResult Index4(DateTime? startDate, DateTime? endDate)
+        {
+            ViewBag.rapport = "Rapport Du" + startDate + "Au" + endDate;
+            var PanneVehicules = db.PanneVehicules.Where(x => x.DateEnregistrement >= startDate && x.DateEnregistrement <= endDate).ToList();
+            return View(PanneVehicules);
+        }
         //
         // GET: /PanneVehicules/Details/5
 
