@@ -14,10 +14,10 @@
  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
      <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Vehicules Encours ou Terminer la reparation  </u></b></i></h3>
    <div style="background-color:rgb(255, 216, 0)">
-    <b><i class="fa fa-refresh fa-spin"></i>@Html.ActionLink("Retour sur cette affichage", "Index6")</b>
+    <b><i class="fa fa-refresh fa-spin"></i>@Html.ActionLink("Retour sur cette affichage", "Index4")</b>
 </div>
   <p>      
-   @using (Html.BeginForm("Index6", "PanneVehicules", FormMethod.Post))
+   @using (Html.BeginForm("Index4", "PanneVehicules", FormMethod.Post))
    { 
        <span id="startDate"><b>Date Début</b></span><input type="date" name="startDate" />
        <span id="endDate"><b>Date Fin</b></span><input type="date" name="endDate" />
