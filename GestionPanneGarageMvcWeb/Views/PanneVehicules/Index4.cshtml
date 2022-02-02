@@ -12,18 +12,22 @@
 </head>
 <body>
  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
-     <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Vehicules Encours ou Terminer la reparation  </u></b></i></h3>
-   <div style="background-color:rgb(255, 216, 0)">
-    <b><i class="fa fa-refresh fa-spin"></i>@Html.ActionLink("Retour sur cette affichage", "Index4")</b>
+  <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Listes des Clients et leurs Vehicules </u></b></i></h3>
+        <div style="background-color:rgb(255, 216, 0)">
+     <b><i class="fa fa-refresh fa-spin"></i>@Html.ActionLink("Mettre a jour cette affichage", "Index4")</b>
 </div>
-  <p>      
+       <p>  
    @using (Html.BeginForm("Index4", "PanneVehicules", FormMethod.Post))
-   { 
-       <span id="startDate"><b>Date Début</b></span><input type="date" name="startDate" />
-       <span id="endDate"><b>Date Fin</b></span><input type="date" name="endDate" />
+   {
+       <span id="startDate"><b>Date Debut</b></span><input type="date" name="startDate" />
+       <span id="endDate"><b>Date Debut</b></span><input type="date" name="endDate" />
        <input type="submit" name="submit" value="Afficher" />
    }  
 </p>
+ <div class="table-responsive">
+<div class="container mt-15">
+  <div class="mt-3">
+      <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>@ViewBag.rapport</u></b></i></h3>
      <table class="table table-bordered" id="users-list">
        <thead class="table-dark">
          <tr>
@@ -87,7 +91,9 @@
        </tbody>
      </table>   
       </div>
-
+  </div>
+</div>
+ </div>
 </body>
 </html>
 @section scripts
