@@ -506,6 +506,8 @@
     <Content Include="Views\Reparations\ListesVehiculesTerminer.cshtml" />
     <Content Include="Views\Reparations\ListesArgentParDates.cshtml" />
     <Content Include="Views\Reparations\Listesdesclientsetleursvehicules.cshtml" />
+    <Content Include="Views\PanneVehicules\Index4.cshtml" />
+    <Content Include="Views\PanneVehicules\Index7.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
