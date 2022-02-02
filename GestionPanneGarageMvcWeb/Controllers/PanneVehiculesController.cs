@@ -33,6 +33,7 @@ namespace GestionPanneGarageMvcWeb.Controllers
             var PanneVehicules = db.PanneVehicules.Where(x => x.DateEnregistrement >= startDate && x.DateEnregistrement <= endDate).ToList();
             return View(PanneVehicules);
         }
+
         public ActionResult Index7()
         {
 
