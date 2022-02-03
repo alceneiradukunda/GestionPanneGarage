@@ -50,10 +50,7 @@ namespace GestionPanneGarageMvcWeb.Controllers
         {
 
             var pannevehicules = db.PanneVehicules.Include(p => p.Client);
-
             return View(pannevehicules.ToList());
-       
-           
         }
          [HttpPost]
         public ActionResult Index(DateTime? startDate,DateTime? endDate)
@@ -68,7 +65,6 @@ namespace GestionPanneGarageMvcWeb.Controllers
          {
 
              var pannevehicules = db.PanneVehicules.Include(p => p.Client);
-
              return View(pannevehicules.ToList());
          }
          [HttpPost]
