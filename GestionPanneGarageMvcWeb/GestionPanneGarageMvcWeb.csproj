@@ -474,7 +474,6 @@
     <Content Include="Views\CategoriesArticles\Details1.cshtml" />
     <Content Include="Views\CategoriesArticles\Edit1.cshtml" />
     <Content Include="Views\CategoriesArticles\Index1.cshtml" />
-    <Content Include="Views\Reparations\Index7.cshtml" />
     <Content Include="Views\PanneVehicules\Delete1.cshtml" />
     <Content Include="Views\PanneVehicules\Details1.cshtml" />
     <Content Include="Views\PanneVehicules\Edit1.cshtml" />
