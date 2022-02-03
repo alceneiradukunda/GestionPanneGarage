@@ -49,9 +49,11 @@ namespace GestionPanneGarageMvcWeb.Controllers
         public ActionResult Index()
         {
 
-            var PannesVehicules = db.PanneVehicules.Where(x => x.EtatVehicule == "Encours").ToList();
+            var pannevehicules = db.PanneVehicules.Include(p => p.Client);
+
+            return View(pannevehicules.ToList());
        
-            return View(PannesVehicules);
+           
         }
          [HttpPost]
         public ActionResult Index(DateTime? startDate,DateTime? endDate)
