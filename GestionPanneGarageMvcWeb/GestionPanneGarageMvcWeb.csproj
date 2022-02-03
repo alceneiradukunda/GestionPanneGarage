@@ -435,7 +435,7 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
-    <Content Include="Views\PanneVehicules\Index.cshtml" />
+    <Content Include="Views\PanneVehicules\Index3.cshtml" />
     <Content Include="Views\PanneVehicules\Details.cshtml" />
     <Content Include="Views\PanneVehicules\Create.cshtml" />
     <Content Include="Views\PanneVehicules\Edit.cshtml" />
@@ -501,7 +501,7 @@
     <Content Include="Views\Reparations\Listespardates.cshtml" />
     <Content Include="Views\PanneVehicules\Index2.cshtml" />
     <Content Include="Views\Reparations\Index1.cshtml" />
-    <Content Include="Views\PanneVehicules\ListesVehiculesEncours.cshtml" />
+    <Content Include="Views\PanneVehicules\ListesVehiculesEncours1.cshtml" />
     <Content Include="Views\Reparations\ListesVehiculesTerminer.cshtml" />
     <Content Include="Views\Reparations\ListesArgentParDates.cshtml" />
     <Content Include="Views\Reparations\Listesdesclientsetleursvehicules.cshtml" />
