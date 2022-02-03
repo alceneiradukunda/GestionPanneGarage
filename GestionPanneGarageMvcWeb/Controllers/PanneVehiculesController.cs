@@ -46,14 +46,14 @@ namespace GestionPanneGarageMvcWeb.Controllers
             return View(pannevehicule);
         }
         //Affichage des vehicules en cours de reparation
-        public ActionResult Index()
+        public ActionResult Index3()
         {
 
             var pannevehicules = db.PanneVehicules.Include(p => p.Client);
             return View(pannevehicules.ToList());
         }
          [HttpPost]
-        public ActionResult Index(DateTime? startDate,DateTime? endDate)
+        public ActionResult Index3(DateTime? startDate,DateTime? endDate)
         {
             ViewBag.rapport = "Rapport Du" + startDate + "Au" + endDate;
             var PanneVehicules = db.PanneVehicules.Where(x => x.DateEnregistrement >= startDate && x.DateEnregistrement <= endDate).ToList();
@@ -61,14 +61,14 @@ namespace GestionPanneGarageMvcWeb.Controllers
         }
         //Affichage des vehicules en cours de reparation dans mecaniciens
          
-         public ActionResult ListesVehiculesEncours()
+         public ActionResult ListesVehiculesEncours1()
          {
 
              var pannevehicules = db.PanneVehicules.Include(p => p.Client);
              return View(pannevehicules.ToList());
          }
          [HttpPost]
-         public ActionResult ListesVehiculesEncours(DateTime? startDate, DateTime? endDate)
+         public ActionResult ListesVehiculesEncours1(DateTime? startDate, DateTime? endDate)
          {
              var PanneVehicules = db.PanneVehicules.Where(x => x.DateEnregistrement >= startDate && x.DateEnregistrement <= endDate).ToList();
              return View(PanneVehicules);
