@@ -1,0 +1,118 @@
+﻿@model IEnumerable<GestionPanneGarageMvcWeb.Models.PanneVehicule>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<!Doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Affichage  de la Liste des Vehicules Encours de Reparation</title>
+</head>
+<body>
+ <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+     <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>Liste des Vehicules Encours et Terminer la Reparation </u></b></i></h3>
+<div style="background-color:rgb(255, 216, 0)">
+    <b><i class="fa fa-refresh fa-spin"></i>@Html.ActionLink("Mettre a jour cette affichage", "Index")</b>
+</div>
+  <p>     
+   @using (Html.BeginForm("Index", "PanneVehicules", FormMethod.Post))
+   {
+        <span id="startDate"><b>Date Début</b></span><input type="date" name="startDate" />
+       <span id="endDate"><b>Date Fin</b></span><input type="date" name="endDate" />
+       <input type="submit" name="submit" value="Afficher" />
+   }  
+</p>
+ <div class="table-responsive">
+<div class="container mt-15">
+  <div class="mt-3">
+      <h3 style="background-color: cyan; text-align: center;resize:horizontal;"><i><b><u>@ViewBag.rapport</u></b></i></h3>
+     
+     <table class="table table-bordered" id="users-list">
+       <thead class="table-dark">
+         <tr>
+             <th>No</th>
+         <th>
+            @Html.DisplayNameFor(model => model.Client.NomClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Prenomclient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plaque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEnregistrement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatVehicule)
+        </th>
+        <th>Action</th>
+    </tr>
+           </thead>
+         <tbody>
+             @{
+                 int no = 0;
+             }
+        @foreach (var item in Model)
+        {
+            no++;
+            <tr>
+          <td>@no</td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Client.NomClient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Prenomclient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plaque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateEnregistrement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EtatVehicule)
+        </td>
+         <td>
+           <div class="dropdown">
+               <span class="dropdown-toggle dropdown-bg btn btn-outline-primary" role="button" id="dropdownMenuButton5"
+                                      data-toggle="dropdown" aria-expanded="false">
+                                    Actions
+                 </span>
+                   <div class="dropdown-menu dropdown-menu-right shadow-none" aria-labelledby="dropdownMenuButton5">
+                       @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new {@class="btn btn-info fa fa-pencil"})
+                       @Html.ActionLink("Details", "Details", new { id=item.Id },new {@class="btn btn-success fa fa-check"}) 
+                       @Html.ActionLink("Delete", "Delete", new { id=item.Id },new {@class="btn btn-danger fa fa-trash"})
+                      
+                    </div>
+             </div>
+           </td>
+            </tr>
+        }
+       
+       </tbody>
+     </table>   
+      </div>
+  </div>
+</div>
+ </div>
+</body>
+</html>
+@section scripts
+{
+    <script src="~/Scripts/Datatables.js"></script>
+}
