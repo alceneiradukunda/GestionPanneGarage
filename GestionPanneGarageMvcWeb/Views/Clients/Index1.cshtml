@@ -73,7 +73,8 @@
                    <div class="dropdown-menu dropdown-menu-right shadow-none" aria-labelledby="dropdownMenuButton5">
                        @Html.ActionLink("Edit", "Edit1", new { id = item.Id }, new {@class="btn btn-info fa fa-pencil"})
                        @Html.ActionLink("Details", "Details1", new { id=item.Id },new {@class="btn btn-success fa fa-check"}) 
-                       @Html.ActionLink("Delete", "Delete1", new { id=item.Id },new {@class="btn btn-danger fa fa-trash"})
+                       @Html.ActionLink("Ajouter","Create1","PanneVehicules", new { id=item.Id },new {@class="btn btn-success fa fa-check"})
+                      @* @Html.ActionLink("Delete", "Delete1", new { id=item.Id },new {@class="btn btn-danger fa fa-trash"})*@
                     </div>
              </div>
            </td>
