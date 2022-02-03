@@ -65,9 +65,9 @@ namespace GestionPanneGarageMvcWeb.Controllers
          public ActionResult ListesVehiculesEncours()
          {
 
-             var PannesVehicules = db.PanneVehicules.Where(x => x.EtatVehicule == "Encours").ToList();
-          
-             return View(PannesVehicules);
+             var pannevehicules = db.PanneVehicules.Include(p => p.Client);
+
+             return View(pannevehicules.ToList());
          }
          [HttpPost]
          public ActionResult ListesVehiculesEncours(DateTime? startDate, DateTime? endDate)
